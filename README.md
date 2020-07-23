@@ -11,5 +11,5 @@ $ pip install selenium
 
 # How to execute
 ```
-$ python3 get_tabelog_ranking.py
+$ python3 get_tabelog_ranking.py --area="東京" --keyword="魚"
 ```
