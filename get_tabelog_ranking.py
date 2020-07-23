@@ -26,7 +26,7 @@ class ShopInfo:
         self.rank = 0
 
 
-def search_keyword(driver: webdriver, area: str, keyword: str):
+def get_tabelog_ranking(driver: webdriver, area: str, keyword: str):
     result = list()
 
     driver.get(TABELOG_URL)
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     driver = webdriver.Firefox(
         firefox_profile=profile, executable_path='./geckodriver')
 
-    ranking = search_keyword(driver, args.area, args.keyword)
+    ranking = get_tabelog_ranking(driver, args.area, args.keyword)
     driver.quit()
 
     print(json.dumps(ranking, default=default_method, indent=2, ensure_ascii=False))
