@@ -5,7 +5,7 @@ import argparse
 from selenium import webdriver
 from time import sleep
 
-timeout = 30
+TIMEOUT = 30
 
 TABELOG_URL = 'https://tabelog.com'
 AREA_FORM_XPATH = '//*[@id="sa"]'
@@ -28,17 +28,17 @@ def get_tabelog_ranking(driver: webdriver, area: str, keyword: str):
     result = list()
 
     driver.get(TABELOG_URL)
-    driver.set_page_load_timeout(timeout)
+    driver.set_page_load_timeout(TIMEOUT)
     sleep(1)
 
     driver.find_element_by_xpath(AREA_FORM_XPATH).send_keys(area)
     driver.find_element_by_xpath(KEYWORD_FORM_XPATH).send_keys(keyword)
     driver.find_element_by_xpath(SEARCH_BTN_XPATH).click()
-    driver.set_page_load_timeout(timeout)
+    driver.set_page_load_timeout(TIMEOUT)
     sleep(1)
 
     driver.find_elements_by_class_name(RANKING_BTN_CSS)[0].click()
-    driver.set_page_load_timeout(timeout)
+    driver.set_page_load_timeout(TIMEOUT)
     sleep(1)
 
     ranking = driver.find_elements_by_class_name(RANKING_LIST_CSS)
