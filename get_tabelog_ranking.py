@@ -5,8 +5,6 @@ import argparse
 from selenium import webdriver
 from time import sleep
 
-profile = ""
-driver = ""
 timeout = 30
 
 TABELOG_URL = 'https://tabelog.com'
